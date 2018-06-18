@@ -46,7 +46,7 @@
 
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
         <activity android:name=".wxapi.WXEntryActivity" android:label="@string/app_name" android:exported="true"/>
-        <meta-data android:value="5b1fa60aa40fa30c1900003e" android:name="UMENG_APPKEY"/>
+        <meta-data android:value="5b27367cf29d980146000280" android:name="UMENG_APPKEY"/>
         <meta-data android:value="umeng" android:name="UMENG_CHANNEL"/>
     </application>
 
