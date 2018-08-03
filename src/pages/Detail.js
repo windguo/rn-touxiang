@@ -47,9 +47,9 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import * as WeChat from 'react-native-wechat';
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
-export  default  class Detail extends Component {
+export default class TouxiangDetail extends Component {
     static navigationOptions = {
-        title: '详情页',
+        title: '头像详情页',
         header: ({ navigation }) => {
             return (
                 <ImageBackground style={{ ...header }} source={require('../assets/backgroundImageHeader.png')} resizeMode='cover'>
@@ -60,7 +60,7 @@ export  default  class Detail extends Component {
                             <IconSimple name="arrow-left" size={20} color='#282828' />
                         </View>
                     </TouchableOpacity>
-                    <Text style={{ fontSize: 17, textAlign: 'center', lineHeight: 43.7, color: '#282828' }}>斗图表情宝库详情页</Text>
+                    <Text style={{ fontSize: 17, textAlign: 'center', lineHeight: 43.7, color: '#282828' }}>头像详情页</Text>
                     <View style={{ justifyContent: 'center', marginLeft: 10, alignItems: 'center', height: 43.7,width:20 }}>
                         
                     </View>
@@ -76,7 +76,7 @@ export  default  class Detail extends Component {
             refreshing: false,
         };
         this.resuleArray = [];
-        READ_CACHE(storageKeys.MyCollectList, (res) => {
+        READ_CACHE(storageKeys.MyCollectTouxiangList, (res) => {
             if (res && res.length > 0) {
                 this.flatList && this.flatList.setData(res, 0);
                 this.resuleArray = res;
@@ -92,8 +92,8 @@ export  default  class Detail extends Component {
         this.loadDataRand();
     }
     loadData = async (resolve) => {
-        let url = urlConfig.DetailUrl + '&id=' + this.props.navigation.state.params.id;
-        console.log('loadUrl', url);
+        let url = urlConfig.TouxiangDetailUrl + '&id=' + this.props.navigation.state.params.id;
+        console.log('loadUrlloadUrlloadUrl====loadUrl', url);
         let res = await HttpUtil.GET(url);
         console.log(res);
         resolve && resolve();
@@ -168,7 +168,7 @@ export  default  class Detail extends Component {
                         imageUrl: this.state.data && this.state.data.nurl,
                         titlepicUrl: this.state.data && this.state.data.titlepic,
                         type: 'imageUrl',
-                        webpageUrl: urlConfig.DetailUrl + this.state.data.classid + '/' + this.state.data.id
+                        webpageUrl: urlConfig.TouxiangDetailUrl + this.state.data.classid + '/' + this.state.data.id
                     }).then((message) => { message.errCode === 0 ? this.ToastShow('分享成功') : this.ToastShow('分享失败') }).catch((e) => {
                         if (error.message != -2) {
                             Toast.show(error.message);
@@ -178,7 +178,7 @@ export  default  class Detail extends Component {
                     WeChat.shareToTimeline({
                         imageUrl: this.state.data && this.state.data.nurl,
                         type: 'imageUrl',
-                        webpageUrl: urlConfig.DetailUrl + this.state.data.classid + '/' + this.state.data.id
+                        webpageUrl: urlConfig.TouxiangDetailUrl + this.state.data.classid + '/' + this.state.data.id
                     }).then((message) => { message.errCode === 0 ? this.ToastShow('分享成功') : this.ToastShow('分享失败') }).catch((error) => {
                         if (error.message != -2) {
                             Toast.show(error.message);
@@ -224,7 +224,7 @@ export  default  class Detail extends Component {
                             imageUrl: this.state.data && this.state.data.nurl,
                             titlepicUrl: this.state.data && this.state.data.titlepic,
                             type: 'imageUrl',
-                            webpageUrl: urlConfig.DetailUrl + this.state.data.classid + '/' + this.state.data.id
+                            webpageUrl: urlConfig.TouxiangDetailUrl + this.state.data.classid + '/' + this.state.data.id
                         }).then((message) => { message.errCode === 0 ? this.ToastShow('分享成功') : this.ToastShow('分享失败') }).catch((error) => {
                             if (error.message != -2) {
                                 Toast.show(error.message);
@@ -235,7 +235,7 @@ export  default  class Detail extends Component {
                             imageUrl: this.state.data && this.state.data.nurl,
                             titlepicUrl: this.state.data && this.state.data.titlepic,
                             type: 'imageUrl',
-                            webpageUrl: urlConfig.DetailUrl + this.state.data.classid + '/' + this.state.data.id
+                            webpageUrl: urlConfig.TouxiangDetailUrl + this.state.data.classid + '/' + this.state.data.id
                         }).then((message) => { message.errCode === 0 ? this.ToastShow('分享成功') : this.ToastShow('分享失败') }).catch((error) => {
                             if (error.message != -2) {
                                 Toast.show(error.message);
@@ -264,9 +264,10 @@ export  default  class Detail extends Component {
             nurl: this.state.data.nurl,
             titlepic: this.state.data.titlepic,
         };
+        console.log('resuresuresuresu===', resu)
         this.resuleArray.push(resu);
-        WRITE_CACHE(storageKeys.MyCollectList, this.resuleArray);
-        Toast.show('本地收藏【' + this.state.data.title + '】成功,\n请到本地表情查看。', {
+        WRITE_CACHE(storageKeys.MyCollectTouxiangList, this.resuleArray);
+        Toast.show('本地收藏【' + this.state.data.title + '】成功,\n请到本地头像查看。', {
             duration: Toast.durations.SHORT,
             position: Toast.positions.CENTER,
             shadow: true,
@@ -274,7 +275,7 @@ export  default  class Detail extends Component {
             hideOnPress: true,
             delay: 0,
         });
-        // READ_CACHE(storageKeys.MyCollectList, (res) => {
+        // READ_CACHE(storageKeys.MyCollectTouxiangList, (res) => {
         //     console.log('===res===', res);
         //     return false;
         //     if (res && res.length > 0) {
@@ -320,7 +321,7 @@ export  default  class Detail extends Component {
                         >
                             <View style={styles.shareContent}>
                                 <Icon name="folder-open-o" size={40} color='#6cbcff' />
-                                <Text style={styles.spinnerTitle}>收藏表情</Text>
+                                <Text style={styles.spinnerTitle}>收藏头像</Text>
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity

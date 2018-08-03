@@ -9,7 +9,7 @@ export default urlConfig = {
     ReportURL: 'http://m.jianjie8.com/report',
     // 收藏url
     FavasURL: 'http://m.jianjie8.com/fava',
-    agreementURL: 'http://m.jianjie8.com/agreementBiaoqing',
+    agreementURL: 'http://m.jianjie8.com/agreementtouxiang',
     suggestURL: "http://www.jianjie8.com/e/tool/feedback/?bid=1",
     //最新更新
     //  newList: '/e/api/?getJson=new',
@@ -18,16 +18,16 @@ export default urlConfig = {
     //待处理
     //栏目列表 http://jianjie.92kaifa.com/e/api/getNewsClass.php
     // sectionList:'/e/api/?getJson=class',
-    sectionList:'/e/api/biaoqing?getJson=class',
+    sectionList:'/e/api/touxiang?getJson=class',
 //随机
-    sectionListRand:'/e/api/biaoqing?getJson=classRand',
+    sectionListRand:'/e/api/touxiang?getJson=classRand',
     //栏目列表数据后面拼接&classid=3
     // sectionListData:'/e/api/?getJson=column',
-    sectionListData:'/e/api/biaoqing?getJson=column',
+    sectionListData:'/e/api/touxiang?getJson=column',
 //随机
-    sectionListDataRand:'/e/api/biaoqing?getJson=column',
+    sectionListDataRand:'/e/api/touxiang?getJson=column',
     // 表情包
-    sectionListDataBiaoqingbao:'/e/api/biaoqing?getJson=column',
+    sectionListDatatouxiangbao:'/e/api/touxiang?getJson=column',
     //发布地址
     pubLishUrl:'http://m.jianjie8.com/fromapp',
     //点赞或者踩 {classid:2,id:2,dotop:1,doajax:1,ajaxarea:'diggnum'dotop这个字段 传0 是踩踩 传1是赞}
@@ -35,18 +35,18 @@ export default urlConfig = {
     thumbDownUrl:'/e/public/digg/post/diggbot.php',
     LoginUrl:  '/e/member/doaction.php',
     // 我发布的内容
-    MyPublishUrl:  '/e/api/biaoqing?getJson=article',
+    MyPublishUrl:  '/e/api/touxiang?getJson=article',
     // 我收藏的内容
-    MyFavasUrl: '/e/api/biaoqing/?getJson=favas',
-    userInfo: '/e/api/biaoqing?getJson=article',
+    MyFavasUrl: '/e/api/touxiang/?getJson=favas',
+    userInfo: '/e/api/touxiang?getJson=article',
     //更新检测地址
-    CheckUpdate:"/e/api/biaoqing?getJson=version",
+    CheckUpdate:"/e/api/touxiang?getJson=version",
     //分享出去的图片
     thumbImage: 'http://jianjie8.com/skin/h8/images/icon_share.png',
     //复制完跳去详情
      DetailUrl: "http://m.jianjie8.com/detail/",
-    Search:'/e/api/biaoqing/?classid=72&getJson=',
-     DetailUrl:'/e/api/biaoqing/?getJson=content'
+    Search:'/e/api/touxiang/?classid=72&getJson=',
+    TouxiangDetailUrl:'/e/api/touxiang/?getJson=content'
 
 
 }

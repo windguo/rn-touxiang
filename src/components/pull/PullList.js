@@ -222,18 +222,19 @@ export default class PullList extends Pullable {
             <FlatList
                 style={{flex:1}}
                 ref={(c) => {this.scroll = c;}}
-                      onScroll={this.onScroll}
-                      scrollEnabled={this.state.scrollEnabled}
-                      refreshing={false}
-                      keyExtractor={(item, index) => {return index}}
-                      onEndReachedThreshold={0}
-                      data={this.state.data}
-                      ListFooterComponent={this.renderFooter}
-                      windowSize={10}
-                      updateCellsBatchingPeriod={1}
-                      maxToRenderPerBatch={10}
-                      disableVirtualization={false}
-                      {...this.props}
+                    onScroll={this.onScroll}
+                    scrollEnabled={this.state.scrollEnabled}
+                    refreshing={false}
+                    keyExtractor={(item, index) => {return index}}
+                    onEndReachedThreshold={0}
+                    data={this.state.data}
+                    ListFooterComponent={this.renderFooter}
+                    windowSize={10}
+                    numColumns={2}
+                    updateCellsBatchingPeriod={1}
+                    maxToRenderPerBatch={10}
+                    disableVirtualization={false}
+                    {...this.props}
                 ItemSeparatorComponent={this.renderSeparatorView}
                 onEndReached = {this.loadMore}/>
         );
